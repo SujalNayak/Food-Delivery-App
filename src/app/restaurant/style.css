@@ -1,0 +1,54 @@
+ header {
+
+    padding: 10px 20px;    
+    
+  }
+/*
+  .logo img {
+    width: 1180px; 
+    height: auto;
+    position: fixed;
+  }*/
+  
+  .logo ul {
+    width: fit-content;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+  }
+ /* 
+  .logo li {
+    margin: 0;
+  }
+  
+  .logo a {
+    text-decoration: none;
+    color: #333; /* Adjust the color as needed */
+    /* font-weight: bold;
+  }
+  
+  .logo a:hover {
+    color: #ff6347; /* Change the hover color as needed */
+ /* } 
+  
+   */
+
+li:hover {
+  background-color: #f8f9fa;
+  color: #ff6347;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 0.5s;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
