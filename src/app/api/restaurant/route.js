@@ -1,6 +1,12 @@
+import { restoSchema } from "@/app/lib/restoModel";
+import mongoose from "mongoose";
 import { NextResponse } from "next/server"
+import { connectionstr } from "../../lib/db";
 
 export async function GET(){
-    await mongoose.connect(connectionstr, {useNewUrlParser: true, useUnifiedTopology: true});
-    return NextResponse.json({result: true})
+    console.log(connectionstr);
+    await mongoose.connect(connectionstr, {useNewUrlParser: true});
+    const data = await restoSchema.find();
+    console.log(data);
+    return NextResponse.json({result: data})
 }
