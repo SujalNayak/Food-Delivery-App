@@ -1,8 +1,8 @@
 const restaurantLogin = () => {
     return (
-        <div className="items-center">
+        <div className="text-center">
             <h1 className="text-center">Restaurant Login</h1>
-            <form className="mt-10 ml-10">
+            <form className="mt-10 ml-10 border-5 border-solid border-x-black">
                 <div className="mt-5">
                     <input type="text" placeholder="Enter your email"  className="input-field"/>
                 </div>
