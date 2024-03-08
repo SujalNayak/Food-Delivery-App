@@ -42,8 +42,8 @@ const restaurantSignup = () => {
     }
     return(
         <div className="content-center">
-            {/* <h1 className="text-center">Restaurant Signup</h1> */}
-            <form className="mt-10 ml-10 text-center border-2 border-solid border-x-black">
+            <h1 className="text-center">Restaurant Signup</h1>
+            <form className="mt-10 ml-10 text-center">
                 <div className="mt-5">
                     <input type="text" placeholder="Enter Restaurent name"  className="input-field" value={name} onChange={(event)=>{setName(event.target.value)}}/>
                 </div>

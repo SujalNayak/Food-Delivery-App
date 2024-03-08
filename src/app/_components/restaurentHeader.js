@@ -11,13 +11,10 @@ const RestaurantHeader = () => {
                         <Link href="#home">Home</Link>
                     </li>
                     <li>
-                        <Link href="#menu">Menu</Link>
+                        <Link href="#menu">Login / SignUp</Link>
                     </li>
                     <li>
-                        <Link href="#about">About</Link>
-                    </li>
-                    <li>
-                        <Link href="#contact">Contact</Link>
+                        <Link href="#contact">Profile</Link>
                     </li>
                 </ul>
             </div>

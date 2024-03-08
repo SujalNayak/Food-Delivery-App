@@ -8,6 +8,6 @@ const restaurantFooter = () => {
     </div>
     </footer>
   )
-}
+} 
 
 export default restaurantFooter;
