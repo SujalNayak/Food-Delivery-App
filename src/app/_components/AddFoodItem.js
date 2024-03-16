@@ -1,8 +1,34 @@
+import { useState } from "react";
+
 const AddFoodItem = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [path, setPath] = useState("");
     const [description, setDescription] = useState("");
+
+    const handleAddFoodItem = async () => {
+        if (!name || !price || !path || !description) {
+            alert("Please fill all the fields");
+            return;
+        }
+        let response = await fetch("http://localhost:3000/api/restaurant", {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                price: price,
+                path: path,
+                description: description,
+                additem: true,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        response = await response.json();
+        if (response.success) {
+            alert("Food Item Added Successfully");
+        }
+    }
     return (
         <div className="">
             <h1 className="font-bold">Add New Food Item</h1>
@@ -50,6 +76,9 @@ const AddFoodItem = () => {
                             setDescription(event.target.value);
                         }}
                     />
+                </div>
+                <div className="mt-5">
+                    <button className="button" onClick={handleAddFoodItem}>Add Item</button>
                 </div>
             </div>
         </div>
