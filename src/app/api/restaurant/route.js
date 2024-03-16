@@ -14,7 +14,7 @@ const connect = async () => {
     } catch (error) {
         console.error("Error connecting to MongoDB:", error);
     }
-}
+};
 
 export async function GET() {
     try {
@@ -49,17 +49,32 @@ export async function GET() {
 export async function POST(request) {
     try {
         let payload = await request.json();
-        // connect();
+        let result = false;
+        let success = false;
         await mongoose.connect(connectionstr, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        let restaurant = new restoSchema(payload);
-        const result = await restaurant.save();
-        return NextResponse.json({ result, success : true });
+        if (payload.login) {
+            result = await restoSchema.findOne({
+                email: payload.email,
+                password: payload.password,
+            });
+            if (result) {
+                success = true;
+                // delete result.password;
+            }
+        } else {
+            let restaurant = new restoSchema(payload);
+            const result = await restaurant.save();
+            if (result) {
+                success = true;
+            }   
+        }
+        return NextResponse.json({ result, success});
     } catch (error) {
         // Handle errors
-        console.error("Error inserting data:", error);
+        console.error(error);
         mongoose.connection.close(); // Close the connection in case of error
 
         // Return an error response
@@ -68,4 +83,4 @@ export async function POST(request) {
             { status: 500 }
         );
     }
-};
+}
