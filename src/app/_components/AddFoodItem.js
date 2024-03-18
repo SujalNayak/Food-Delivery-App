@@ -11,14 +11,19 @@ const AddFoodItem = () => {
             alert("Please fill all the fields");
             return;
         }
-        let response = await fetch("http://localhost:3000/api/restaurant", {
+        let resto_id = "";
+        const restaurantData = JSON.parse(localStorage.getItem("restaurantUser"));
+        if (restaurantData) {
+            resto_id = restaurantData._id;
+        }
+        let response = await fetch("http://localhost:3000/api/restaurant/foods", {
             method: "POST",
             body: JSON.stringify({
                 name: name,
                 price: price,
-                path: path,
+                img_path: path,
                 description: description,
-                additem: true,
+                resto_id: resto_id,
             }),
             headers: {
                 "Content-Type": "application/json",
