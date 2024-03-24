@@ -30,6 +30,7 @@ const AddFoodItem = () => {
             },
         });
         response = await response.json();
+        console.log("Response:", response);
         if (response.success) {
             alert("Food Item Added Successfully");
         }
